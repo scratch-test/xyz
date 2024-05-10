@@ -24,6 +24,8 @@ Start OpenDaylight :   $ ./bin/karaf
 
 Create layout :
       $ sudo mn --arp --mac
+              (or)
+      $ sudo mn  --arp --mac --controller=remote,ip=127.0.0.1,port=6633
       (mininet will open)
 
 To get ip and mac :
