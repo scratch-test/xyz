@@ -17,6 +17,8 @@ sudo apt install xterm
 clone github repo katharallabs
 and move directory to basic-ipv4
 
+repo : main-labs/basic-topics/basic-ipv4
+
 //
 sudo kathara lstart
 
