@@ -1,0 +1,16 @@
+//GNS3 installation
+$ sudo add-apt-repository ppa:gns3/ppa
+$ sudo apt update
+$ sudo apt install gns3-gui gns3-server
+$ sudo dpkg --add-architecture i386
+$ sudo apt install gns3-iou
+$ sudo apt remove docker docker-engine docker.io
+$ sudo snap remove docker
+$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+$ sudo add-apt-repository \"deb [arch=amd64] https://download.docker.com/linux/ubuntu \$(lsb_release -cs) stable"
+$ sudo apt update
+$ sudo apt install docker-ce
+$ sudo usermod -aG ubridge,libvirt,kvm,wireshark,docker $(whoami)
+$ gns3 –version
+
+
