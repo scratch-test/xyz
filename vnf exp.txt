@@ -1,0 +1,41 @@
+SDN MODEL LAB
+
+VNF experiment:
+https://github.com/containernet/vim-emu?authuser=1
+
+install standalone from github:
+sudo apt-get install ansible git aptitude
+
+cd
+git clone https://github.com/containernet/containernet.git
+cd ~/containernet/ansible
+sudo ansible-playbook -i "localhost," -c local install.yml
+cd ..
+sudo make develop
+(if you get error in installation change the yaml file ansible to present for all the states)
+
+cd
+git clone https://osm.etsi.org/gerrit/osm/vim-emu.git
+cd ~/vim-emu/ansible
+sudo ansible-playbook -i "localhost," -c local install.yml
+cd ..
+sudo python3 setup.py develop
+
+# start the emulation platform with a single NFV data center
+sudo python3 examples/default_single_dc_topology.py
+
+if you get pyflakes errors:
+pip install --upgrade pycodestyle
+pip install --upgrade pyflakes
+pip install --upgrade mccabe
+
+# start two simple VNFs( in a different terminal)
+vim-emu compute start -d dc1 -n vnf1
+vim-emu compute start -d dc1 -n vnf2
+vim-emu compute list
+(If you get error you are fucked!!!)
+
+# check the connectivity between the two VNFs(go back to first terminal)
+# press <ENTER> <ENTER>
+containernet> vnf1 ifconfig
+containernet> vnf1 ping -c2 vnf2

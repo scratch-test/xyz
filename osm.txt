@@ -1,0 +1,6 @@
+wget https://osm-download.etsi.org/ftp/osm-15.0-fifteen/install_osm.sh
+chmod +x install_osm.sh
+./install_osm.sh
+
+
+go to http://<your ip address>

@@ -1,0 +1,73 @@
+Install OpenDaylight (ODL) controller 
+1. Prepare operating system 
+Update your operating system, applications and security tools through the apt package manager. 
+Execute an apt-get update, which refreshes the list of available packages. 
+$ sudo apt-get -y update 
+Now upgrade the packages via the upgrade option. 
+$ sudo apt-get -y upgrade 
+Install unzip, to unzip the OpenDaylight archive. 
+$ sudo apt-get -y install unzip 
+
+
+2. Install the Java JRE 
+The OpenDaylight Architects designed OpenDaylight for the Java ecosystem. OpenDaylight requires a Java runtime environment (JRE) to run. OpenDaylight can leverage either a stand alone JRE on the JRE bundled in a Java Software Development Kit. 
+The following command installs the JAVA 8 JRE. 
+$ sudo apt install default-jre 
+$ sudo apt install default-jdk 
+$ java -version 
+Use the update-alternatives command to set the default Java to JAVA 11. 
+$ sudo update-alternatives --config java 
+update-alternatives will output a useful piece of information - the full path to your JAVA executable. Copy this path down, you will need it to set the JAVA_HOME environment variable in the next step.
+
+3. Set JAVA_HOME
+Retrieve the full path to your JAVA executable. If you lost track, you can run the following command: 
+~$ ls -l /etc/alternatives/java 
+lrwxrwxrwx 1 root root 46 Sep 27 20:24 /etc/alternatives/java -> 
+/usr/lib/jvm/java-11-openjdk-amd64/jre/bin/java 
+OpenDaylight wants the JAVA_HOME environment variable to reflect the location the entire JAVA toolset, and not just the JAVA executable. For that reason, remove bin/java from the path. This sets JAVA_HOME to the location of the JRE. 
+To set (and persist) the value of JAVA_HOME, edit your BASH resource file. 
+$ echo 'export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64' >> ~/.bashrc 
+Ubuntu reads your BASH resource file whenever you log into the shell. To set JAVA_HOME for the first time, you can either log out of and then back into your shell or simply source the resource file. To source the file, execute the following command: 
+$ source ~/.bashrc 
+Once you source the file, ensure that $JAVA_HOME ends with /jre. 
+$ echo $JAVA_HOME 
+/usr/lib/jvm//usr/lib/jvm/java-11-openjdk-amd64 
+
+4. Download the OpenDaylight Zip Archive 
+$ curl -XGET -O 
+https://nexus.opendaylight.org/content/repositories/opendaylight.release/org/opendaylight/integr ation/karaf/0.13.4/karaf-0.13.4.zip 
+
+5. Install OpenDaylight 
+Ensure that you downloaded the file. 
+NOTE: You may have downloaded a different version than me. If this is the case, you will see a different version name. 
+$ ls 
+karaf-0.13.4.zip 
+NOTE: Ensure that the name of your Zip begins with the word karaf and not opendaylight, if it does not, then go back to the previous section and follow the directions on how to download the correct Zip
+If you have the correct Zip, then unzip the file. 
+$ unzip karaf-0.13.4.zip 
+If you enter the un-zipped directory and list the contents, you should see a bin directory. 
+~$ cd karaf-0.8.4/ 
+~/karaf-0.8.4$ ls 
+CONTRIBUTING.markdown bin data karaf-0.12.2.zip taglist.log LICENSE build.url deploy lib 
+README.markdown configuration etc system 
+
+6. Start OpenDaylight 
+Now you can start OpenDaylight. 
+ubuntu@ip-172-31-92-223:~/karaf-0.8.4$ ./bin/karaf 
+
+7 Create a network using mininet 
+sudo mn --controller=remote,ip=<Controller IP> --topo=linear,3 --switch ovsk,protocols=OpenFlow13 
+sudo mn --controller=remote,ip=127.0.0.1 --topo=linear,3 --switch ovsk,protocols=OpenFlow13 
+The above command will create a virtual network consisting of 3 switches. Each switch will connect to the controller located at the specified IP, i.e. 127.0.0.1 
+sudo mn --controller=remote,ip=127.0.0.1 --mac --topo=linear,3 --switch ovsk,protocols=OpenFlow13 
+The above command has the "mac" option, which makes it easier to distinguish between Host MAC addresses and Switch MAC addresses.
+
+8. mn --mac --controller=remote,ip=127.0.0.1,port=6633
+
+mininet> net
+mininet> s1 ovs-ofctl show "s1"
+mininet> s1 ovs-ofctl add-flow "s1" priority=1,ip,nw_dst=<host2_ip>,actions=mod_dl_dst:<host2_mac>,output=2 
+mininet> s1 ovs-ofctl add-flow "s1" priority=1,ip,nw_dst=<host1_ip>,actions=mod_dl_dst:<host1_mac>,output=1
+Let's verify the flow table
+mininet> s1 ovs-ofctl dump-flows "s1"
+mininet> h1 ping -c2 h2

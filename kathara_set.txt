@@ -1,0 +1,36 @@
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 21805A48E6CBBA6B991ABE76646193862B759810
+sudo add-apt-repository ppa:katharaframework/kathara
+sudo apt update
+sudo apt install kathara
+
+//install docker
+sudo apt-get install docker.io
+
+//start docker
+systemctl start docker
+
+//install xterm 
+sudo apt install xterm
+
+
+//
+clone github repo katharallabs
+and move directory to basic-ipv4
+
+//
+sudo kathara lstart
+
+//
+from pc 3
+ping 200.1.1.7
+arp -n
+
+//on host device
+kathara lconfig -n wireshark --add C
+
+browswer
+localhost:3000
+eth1
+
+//
+sudo kathara lclean
