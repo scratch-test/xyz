@@ -38,7 +38,7 @@ Create a topology :
 			self.addLink( rightSwitch, h4 )		
 	
 	topos = { 'myfirsttopo: ( lambda: MyFirstTopo() ) }	
-	
-	sudo mn --custom myfirsttopo.py --topo myfirsttopo
+To execute :
+	$ sudo mn --custom myfirsttopo.py --topo myfirsttopo
 	
 	
