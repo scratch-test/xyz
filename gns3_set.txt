@@ -5,7 +5,6 @@ sudo apt install gns3-gui gns3-server
 
 gns3server
 
-
 gns3 app
 
 drag and drop 
