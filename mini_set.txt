@@ -1,16 +1,19 @@
 //Install mininet
-sudo apt-get install mininet
+$ sudo apt-get install mininet
 
 //Install openswitch
-sudo apt-get install openvswitch-switch
-sudo service openvswitch-switch start
+$ sudo apt-get install openvswitch-switch
+$ sudo service openvswitch-switch start
 
 //Test Openswitch
-sudo mn --switch ovsbr --test pingall
+$ sudo mn --switch ovsbr --test pingall
 
 //clone and install
-git clone https://github.com/mininet/mininet
-mininet/util/install.sh -fw
+$ git clone https://github.com/mininet/mininet
+$ mininet/util/install.sh -fw
+
+$ sudo mn --topo linear, 3
+
 
 myfirsttopo.py
 from mininet.topo import Topo		
