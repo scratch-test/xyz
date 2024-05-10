@@ -22,11 +22,11 @@ ping 200.1.1.7
 arp -n
 
 //on host device
-sudo kathara lconfig -n wireshark --add C
+$ sudo kathara lconfig -n wireshark --add C
 
 browswer
 localhost:3000
 eth1
 
 //
-sudo kathara lclean
+$ sudo kathara lclean
