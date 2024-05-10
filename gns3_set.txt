@@ -1,10 +1,11 @@
-$ sudo add-apt-repository ppa:gns3/ppa
-$ sudo apt update                                
-$ sudo apt install gns3-gui gns3-server
-	
-$ gns3server
+Install GNS3 :
+	$ sudo add-apt-repository ppa:gns3/ppa
+	$ sudo apt update                                
+	$ sudo apt install gns3-gui gns3-server
 
-$ gns3 app
+Open GNS3 :
+	$ gns3server
+	$ gns3 app
 
 drag and drop 
 
