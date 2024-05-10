@@ -1,0 +1,11 @@
+Install Wireshark :
+  $ sudo add-apt-repository ppa:wireshark-dev/stable
+  $ sudo apt-get update
+  $ sudo apt-get install wireshark
+
+Run Wireshark :
+  $ sudo wireshark
+
+if error :
+  $ sudo dpkg-reconfigure wireshark-common
+  $ sudo adduser $USER wireshark
