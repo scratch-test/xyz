@@ -10,7 +10,7 @@ start docker : $ systemctl start docker
 
 install xterm : $ sudo apt install xterm
 
-clone github repo katharallabs and move directory to basic-ipv4 (ba
+clone github repo katharallabs and move directory to basic-ipv4 
 (main-labs -> basic-topics -> basic-ipv4)
 repo : https://github.com/KatharaFramework/Kathara-Labs.git
 
