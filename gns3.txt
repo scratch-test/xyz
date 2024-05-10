@@ -12,3 +12,5 @@ drag and drop
 add ip : $ ip 192.168.0.1 255.255.255.0
 
 then ping
+
+(if error reboot system)
