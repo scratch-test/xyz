@@ -1,29 +1,31 @@
-SDN MODEL LAB
 
 VNF experiment:
+
 github repo : $ https://github.com/containernet/vim-emu.git
 
-Automated Installation : $ wget https://osm-download.etsi.org/ftp/osm-15.0-fifteen/install_osm.sh
-                         $ chmod +x install_osm.sh
-                         $ ./install_osm.sh --vimemu
+Installation : 
+  Automated Installation : $ wget https://osm-download.etsi.org/ftp/osm-15.0-fifteen/install_osm.sh
+                           $ chmod +x install_osm.sh
+                           $ ./install_osm.sh --vimemu
+  
+  
+  Bare-Metal : 
+  
+    $ sudo apt-get install ansible git aptitude
 
-
-Bare-Metal : 
-
-  $ sudo apt-get install ansible git aptitude
-   Containernet installation 
-      $ cd git clone https://github.com/containernet/containernet.git
-      $ cd ~/containernet/ansible
-      $ sudo ansible-playbook -i "localhost," -c local install.yml
-      $ cd ..
-      $ sudo make develop
-      (if you get error in installation change the yaml file ansible to present for all the states)
-  vim-emu installation
-      $ cd git clone https://osm.etsi.org/gerrit/osm/vim-emu.git
-      $ cd ~/vim-emu/ansible
-      $ sudo ansible-playbook -i "localhost," -c local install.yml
-      $ cd ..
-      $ sudo python3 setup.py develop
+     Containernet installation 
+        $ cd git clone https://github.com/containernet/containernet.git
+        $ cd ~/containernet/ansible
+        $ sudo ansible-playbook -i "localhost," -c local install.yml
+        $ cd ..
+        $ sudo make develop
+        (if you get error in installation change the yaml file ansible to present for all the states)
+    vim-emu installation
+        $ cd git clone https://osm.etsi.org/gerrit/osm/vim-emu.git
+        $ cd ~/vim-emu/ansible
+        $ sudo ansible-playbook -i "localhost," -c local install.yml
+        $ cd ..
+        $ sudo python3 setup.py develop
 
 Start the emulator
   start the emulation platform with a single NFV data center : 
