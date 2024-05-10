@@ -1,13 +1,13 @@
-sudo add-apt-repository ppa:gns3/ppa
-sudo apt update                                
-sudo apt install gns3-gui gns3-server
+$ sudo add-apt-repository ppa:gns3/ppa
+$ sudo apt update                                
+$ sudo apt install gns3-gui gns3-server
 	
-gns3server
+$ gns3server
 
-gns3 app
+$ gns3 app
 
 drag and drop 
 
-ip 192.168.0.1 255.255.255.0
+add ip : $ ip 192.168.0.1 255.255.255.0
 
 then ping
