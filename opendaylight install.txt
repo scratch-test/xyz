@@ -22,19 +22,18 @@ Install OpenDaylight : $ unzip karaf-0.13.4.zip
 
 Start OpenDaylight :   $ ./bin/karaf 
 
-7 Create a network using mininet 
-sudo mn --controller=remote,ip=<Controller IP> --topo=linear,3 --switch ovsk,protocols=OpenFlow13 
-sudo mn --controller=remote,ip=127.0.0.1 --topo=linear,3 --switch ovsk,protocols=OpenFlow13 
-The above command will create a virtual network consisting of 3 switches. Each switch will connect to the controller located at the specified IP, i.e. 127.0.0.1 
-sudo mn --controller=remote,ip=127.0.0.1 --mac --topo=linear,3 --switch ovsk,protocols=OpenFlow13 
-The above command has the "mac" option, which makes it easier to distinguish between Host MAC addresses and Switch MAC addresses.
+Create layout :
+      $ sudo mn --arp --mac
+      (mininet will open)
 
-8. mn --mac --controller=remote,ip=127.0.0.1,port=6633
+To get ip and mac :
+                    $ h1 ifconfig
+                    $ h2 ifconfig
 
-mininet> net
-mininet> s1 ovs-ofctl show "s1"
-mininet> s1 ovs-ofctl add-flow "s1" priority=1,ip,nw_dst=<host2_ip>,actions=mod_dl_dst:<host2_mac>,output=2 
-mininet> s1 ovs-ofctl add-flow "s1" priority=1,ip,nw_dst=<host1_ip>,actions=mod_dl_dst:<host1_mac>,output=1
-Let's verify the flow table
-mininet> s1 ovs-ofctl dump-flows "s1"
-mininet> h1 ping -c2 h2
+Add flow :
+                    $ s1 ovs-ofctl add-flow "s1" priority=1,ip,nw_dst=10.0.0.1,actions=mod_dl_dst:00:00:00:00:00:01,output=1
+                    $ s1 ovs-ofctl add-flow "s1" priority=1,ip,nw_dst=10.0.0.2,actions=mod_dl_dst:00:00:00:00:00:02,output=2
+
+Check : $ s1 ovs-ofctl dump-flows "s1"
+ping : $ h1 ping h2
+Open Wireshark : $ sudo wireshark
