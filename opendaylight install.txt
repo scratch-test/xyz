@@ -20,7 +20,7 @@ Download the OpenDaylight Zip Archive : $ curl -XGET -O https://nexus.opendaylig
 Install OpenDaylight : $ unzip karaf-0.13.4.zip 
                        $ cd karaf-0.8.4/ 
 
-Start OpenDaylight : $ ubuntu@ip-172-31-92-223:~/karaf-0.8.4$ ./bin/karaf 
+Start OpenDaylight :   $ ./bin/karaf 
 
 7 Create a network using mininet 
 sudo mn --controller=remote,ip=<Controller IP> --topo=linear,3 --switch ovsk,protocols=OpenFlow13 
