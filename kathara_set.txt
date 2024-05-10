@@ -1,7 +1,8 @@
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 21805A48E6CBBA6B991ABE76646193862B759810
-sudo add-apt-repository ppa:katharaframework/kathara
-sudo apt update
-sudo apt install kathara
+$ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 21805A48E6CBBA6B991ABE76646193862B759810
+$ sudo add-apt-repository ppa:katharaframework/kathara
+$ sudo apt update
+
+install kathara : $ sudo apt install kathara
 
 install docker : $ sudo apt-get install docker.io
 
