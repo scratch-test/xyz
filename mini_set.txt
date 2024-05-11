@@ -13,7 +13,7 @@ $ git clone https://github.com/mininet/mininet
 $ mininet/util/install.sh -fw
 
 Create a topology : 
-	$ sudo mn --topo linear, 3
+	$ sudo mn --topo linear,3
 
 		(or)
 
