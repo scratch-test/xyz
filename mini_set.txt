@@ -10,7 +10,7 @@ $ sudo mn --switch ovsbr --test pingall
 
 //clone and install
 $ git clone https://github.com/mininet/mininet
-$ mininet/util/install.sh -fw
+$ ./mininet/util/install.sh -fw
 
 Create a topology : 
 	$ sudo mn --topo linear,3
